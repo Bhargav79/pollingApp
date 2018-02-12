@@ -1,0 +1,61 @@
+
+
+<div class="kidname container-fluid" >
+    <div class="col-md-9 offset-md-1 text-center" style="
+    margin-bottom:1vw;
+    font-size: 24px;">
+        <strong>Voting App</strong>
+    </div>
+    
+    <input  class="form-control col-md-9 offset-md-1" placeholder="Enter Your Name"aria-label="name" type="text" [(ngModel)]="studentname" name="studentname" style="margin-bottom:1vw;"required autofocus>
+ 
+    <div class="col-md-9 offset-md-1 text-center" style="margin-bottom:1vw;height:7vw">
+        <button type="button card" class="btn btn-primary card cardbutton"><img src="../assets/images/apple.jpg" (click)="sendAway('apple')" class="img-fluid" alt="Responsive image"></button>    
+        <button type="button card" class="btn btn-primary card cardbutton"><img src="../assets/images/banana.jpg" (click)="sendAway('banana')"class="img-fluid" alt="Responsive image"></button>  
+        <button type="button card" class="btn btn-primary card cardbutton"><img src="../assets/images/orange.jpg" (click)="sendAway('orange')" class="img-fluid" alt="Responsive image"></button>  
+        <button type="button card" class="btn btn-primary card cardbutton"><img src="../assets/images/pineapple.jpg" (click)="sendAway('pineapple')"  class="img-fluid" alt="Responsive image"></button>  
+    </div>
+
+    <ul class="list-group form-control col-md-9 offset-md-1 text-center" style="margin-bottom:1vw;" >
+        <li class="list-group-item" *ngFor ="let snack of snacks"><strong>{{snack.Name}}</strong> - {{snack.Total}} Votes</li>
+    </ul>
+</div>
+
+
+<div class="container text-center" style="
+margin: 0px;
+margin-top:1vw;
+width: 50%;
+float: left;
+position: relative;
+top: 10vw;">
+  
+
+    <div class="bar card container-fluid text-center">
+        <div style="    
+        width: 33vw;
+        display: block;
+        float: left;" class="container-fluid">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+   
+      </div>
+ 
+
+</div>
+  
+
+  
+
+
+ 
+  
+  

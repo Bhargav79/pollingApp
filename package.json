@@ -1,0 +1,23 @@
+{
+  "name": "pollingapp",
+  "version": "1.0.0",
+  "description": "Polling App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Bhargav",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "helmet": "^3.10.0",
+    "mongoose": "^5.0.4",
+    "socket.io": "^2.0.4"
+  },
+  "engines": {
+    "node": "8.6.0",
+    "npm": "5.6.0"
+  }
+}
