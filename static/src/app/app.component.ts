@@ -53,93 +53,38 @@ export class AppComponent implements OnInit {
     ngOnInit() {
 
 
-      let applefruit = this.service.getAllFruit('apple');
-      let orangefruit = this.service.getAllFruit('orange');
-      let bananafruit = this.service.getAllFruit('banana');
-      let pineapplefruit = this.service.getAllFruit('pineapple');
+          let applefruit = this.service.getAllFruit('apple');
+          let orangefruit = this.service.getAllFruit('orange');
+          let bananafruit = this.service.getAllFruit('banana');
+          let pineapplefruit = this.service.getAllFruit('pineapple');
 
-     forkJoin([applefruit,bananafruit,orangefruit,pineapplefruit]).subscribe(results=>{
-       this.apple = results[0].length;
-       this.banana = results[1].length;
-       this.orange = results[2].length;
-       this.pineapple = results[2].length;
-       this.snacks.push({
-          Name:"Apple",
-          Total:this.apple
-        },
-        {
-          Name:"Orange",
-          Total:this.orange 
-        },
-        {
-          Name:"Banana",
-          Total:this.banana
-        },
-        {
-          Name:"Pineapple",
-          Total:this.pineapple
-        });
-        this.barChartData =[this.apple, this.banana, this.orange , this.pineapple];
-        this.snacks.sort(function(a, b){
-          return b.Total-a.Total
-        });
-        console.log(this.snacks);
-
-
-     })
-
-        
-
-   
-      /*this.service.getAllFruit('apple').subscribe(apple=>{
-        console.log(apple.length);
-        this.apple = apple.length;
-        this.snacks.push({
-          Name:"Apple",
-          Total:this.apple
-        });
-
-
-        this.service.getAllFruit('orange').subscribe(orange=>{
-          console.log(orange.length);
-          this.orange = orange.length;
+        forkJoin([applefruit,bananafruit,orangefruit,pineapplefruit]).subscribe(results=>{
+          this.apple = results[0].length;
+          this.banana = results[1].length;
+          this.orange = results[2].length;
+          this.pineapple = results[2].length;
           this.snacks.push({
-            Name:"Orange",
-            Total:this.orange
-          });
-
-          this.service.getAllFruit('banana').subscribe(banana=>{
-            console.log(banana.length);
-            this.banana = banana.length;
-            this.snacks.push({
+              Name:"Apple",
+              Total:this.apple
+            },
+            {
+              Name:"Orange",
+              Total:this.orange 
+            },
+            {
               Name:"Banana",
               Total:this.banana
+            },
+            {
+              Name:"Pineapple",
+              Total:this.pineapple
             });
-
-
-            this.service.getAllFruit('pineapple').subscribe(pineapple=>{
-              console.log(pineapple.length);
-              this.pineapple = pineapple.length;
-              this.snacks.push({
-                Name:"Pineapple",
-                Total:this.pineapple
-              });
-      
-          });
-
+            this.barChartData =[this.apple, this.banana, this.orange , this.pineapple];
+            this.snacks.sort(function(a, b){
+              return b.Total-a.Total
+            });
+            console.log(this.snacks);
         });
-
-
-      });
-  
-     
-     
-        this.barChartData =[this.apple, this.banana, this.orange , this.pineapple];
-        this.snacks.sort(function(a, b){
-          return b.Total-a.Total
-        });
-        console.log(this.snacks);
-      });*/
 
     
 
@@ -159,73 +104,40 @@ export class AppComponent implements OnInit {
         console.log(data);
         this.snacks = [];
 
-        let applefruit = this.service.getAllFruit('apple');
-        let orangefruit = this.service.getAllFruit('orange');
-        let bananafruit = this.service.getAllFruit('banana');
-        let pineapplefruit = this.service.getAllFruit('pineapple');
+            let applefruit = this.service.getAllFruit('apple');
+            let orangefruit = this.service.getAllFruit('orange');
+            let bananafruit = this.service.getAllFruit('banana');
+            let pineapplefruit = this.service.getAllFruit('pineapple');
 
-       forkJoin([applefruit,bananafruit,orangefruit,pineapplefruit]).subscribe(results=>{
-         this.apple = results[0].length;
-         this.banana = results[1].length;
-         this.orange = results[2].length;
-         this.pineapple = results[2].length;
-         this.snacks.push({
-            Name:"Apple",
-            Total:this.apple
-          },
-          {
-            Name:"Orange",
-            Total:this.orange 
-          },
-          {
-            Name:"Banana",
-            Total:this.banana
-          },
-          {
-            Name:"Pineapple",
-            Total:this.pineapple
-          });
-          this.barChartData =[this.apple, this.banana, this.orange , this.pineapple];
-          this.snacks.sort(function(a, b){
-            return b.Total-a.Total
-          });
-          console.log(this.snacks);
-
-
-       })
-
-
-          /*this.service.getAllFruit('orange').subscribe(orange=>{
-            console.log(orange.length);
-            this.orange = orange.length;
+          forkJoin([applefruit,bananafruit,orangefruit,pineapplefruit]).subscribe(results=>{
+            this.apple = results[0].length;
+            this.banana = results[1].length;
+            this.orange = results[2].length;
+            this.pineapple = results[2].length;
             this.snacks.push({
-              Name:"Orange",
-              Total:this.orange
-            });
-
-            this.service.getAllFruit('banana').subscribe(banana=>{
-              console.log(banana.length);
-              this.banana = banana.length;
-              this.snacks.push({
+                Name:"Apple",
+                Total:this.apple
+              },
+              {
+                Name:"Orange",
+                Total:this.orange 
+              },
+              {
                 Name:"Banana",
                 Total:this.banana
+              },
+              {
+                Name:"Pineapple",
+                Total:this.pineapple
               });
-
-
-              this.service.getAllFruit('pineapple').subscribe(pineapple=>{
-                console.log(pineapple.length);
-                this.pineapple = pineapple.length;
-                this.snacks.push({
-                  Name:"Pineapple",
-                  Total:this.pineapple
-                });
-            });
-
+              this.barChartData =[this.apple, this.banana, this.orange , this.pineapple];
+              this.snacks.sort(function(a, b){
+                return b.Total-a.Total
+              });
+              console.log(this.snacks);
           });
-       
-        });*/
 
-      })
+      });
     }
 
 
