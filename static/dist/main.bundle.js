@@ -49,6 +49,7 @@ module.exports = "\n\n<div class=\"kidname container-fluid\" >\n    <div class=\
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_forkJoin__ = __webpack_require__("../../../../rxjs/_esm5/observable/forkJoin.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,6 +59,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var AppComponent = /** @class */ (function () {
@@ -89,36 +91,27 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.service.getAllFruit('apple').subscribe(function (apple) {
-            console.log(apple.length);
-            _this.apple = apple.length;
+        var applefruit = this.service.getAllFruit('apple');
+        var orangefruit = this.service.getAllFruit('orange');
+        var bananafruit = this.service.getAllFruit('banana');
+        var pineapplefruit = this.service.getAllFruit('pineapple');
+        Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_forkJoin__["a" /* forkJoin */])([applefruit, bananafruit, orangefruit, pineapplefruit]).subscribe(function (results) {
+            _this.apple = results[0].length;
+            _this.banana = results[1].length;
+            _this.orange = results[2].length;
+            _this.pineapple = results[2].length;
             _this.snacks.push({
                 Name: "Apple",
                 Total: _this.apple
-            });
-            _this.service.getAllFruit('orange').subscribe(function (orange) {
-                console.log(orange.length);
-                _this.orange = orange.length;
-                _this.snacks.push({
-                    Name: "Orange",
-                    Total: _this.orange
-                });
-                _this.service.getAllFruit('banana').subscribe(function (banana) {
-                    console.log(banana.length);
-                    _this.banana = banana.length;
-                    _this.snacks.push({
-                        Name: "Banana",
-                        Total: _this.banana
-                    });
-                    _this.service.getAllFruit('pineapple').subscribe(function (pineapple) {
-                        console.log(pineapple.length);
-                        _this.pineapple = pineapple.length;
-                        _this.snacks.push({
-                            Name: "Pineapple",
-                            Total: _this.pineapple
-                        });
-                    });
-                });
+            }, {
+                Name: "Orange",
+                Total: _this.orange
+            }, {
+                Name: "Banana",
+                Total: _this.banana
+            }, {
+                Name: "Pineapple",
+                Total: _this.pineapple
             });
             _this.barChartData = [_this.apple, _this.banana, _this.orange, _this.pineapple];
             _this.snacks.sort(function (a, b) {
@@ -126,6 +119,55 @@ var AppComponent = /** @class */ (function () {
             });
             console.log(_this.snacks);
         });
+        /*this.service.getAllFruit('apple').subscribe(apple=>{
+          console.log(apple.length);
+          this.apple = apple.length;
+          this.snacks.push({
+            Name:"Apple",
+            Total:this.apple
+          });
+  
+  
+          this.service.getAllFruit('orange').subscribe(orange=>{
+            console.log(orange.length);
+            this.orange = orange.length;
+            this.snacks.push({
+              Name:"Orange",
+              Total:this.orange
+            });
+  
+            this.service.getAllFruit('banana').subscribe(banana=>{
+              console.log(banana.length);
+              this.banana = banana.length;
+              this.snacks.push({
+                Name:"Banana",
+                Total:this.banana
+              });
+  
+  
+              this.service.getAllFruit('pineapple').subscribe(pineapple=>{
+                console.log(pineapple.length);
+                this.pineapple = pineapple.length;
+                this.snacks.push({
+                  Name:"Pineapple",
+                  Total:this.pineapple
+                });
+        
+            });
+  
+          });
+  
+  
+        });
+    
+       
+       
+          this.barChartData =[this.apple, this.banana, this.orange , this.pineapple];
+          this.snacks.sort(function(a, b){
+            return b.Total-a.Total
+          });
+          console.log(this.snacks);
+        });*/
     };
     //Sending Poll Using REST
     AppComponent.prototype.sendAway = function (value) {
@@ -138,43 +180,63 @@ var AppComponent = /** @class */ (function () {
         this.service.startpoll(poll).subscribe(function (data) {
             console.log(data);
             _this.snacks = [];
-            _this.service.getAllFruit('apple').subscribe(function (apple) {
-                console.log(apple.length);
-                _this.apple = apple.length;
+            var applefruit = _this.service.getAllFruit('apple');
+            var orangefruit = _this.service.getAllFruit('orange');
+            var bananafruit = _this.service.getAllFruit('banana');
+            var pineapplefruit = _this.service.getAllFruit('pineapple');
+            Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_forkJoin__["a" /* forkJoin */])([applefruit, bananafruit, orangefruit, pineapplefruit]).subscribe(function (results) {
+                _this.apple = results[0].length;
+                _this.banana = results[1].length;
+                _this.orange = results[2].length;
+                _this.pineapple = results[2].length;
                 _this.snacks.push({
                     Name: "Apple",
                     Total: _this.apple
+                }, {
+                    Name: "Orange",
+                    Total: _this.orange
+                }, {
+                    Name: "Banana",
+                    Total: _this.banana
+                }, {
+                    Name: "Pineapple",
+                    Total: _this.pineapple
                 });
-                _this.service.getAllFruit('orange').subscribe(function (orange) {
-                    console.log(orange.length);
-                    _this.orange = orange.length;
-                    _this.snacks.push({
-                        Name: "Orange",
-                        Total: _this.orange
-                    });
-                    _this.service.getAllFruit('banana').subscribe(function (banana) {
-                        console.log(banana.length);
-                        _this.banana = banana.length;
-                        _this.snacks.push({
-                            Name: "Banana",
-                            Total: _this.banana
-                        });
-                        _this.service.getAllFruit('pineapple').subscribe(function (pineapple) {
-                            console.log(pineapple.length);
-                            _this.pineapple = pineapple.length;
-                            _this.snacks.push({
-                                Name: "Pineapple",
-                                Total: _this.pineapple
-                            });
-                            _this.barChartData = [_this.apple, _this.banana, _this.orange, _this.pineapple];
-                            _this.snacks.sort(function (a, b) {
-                                return b.Total - a.Total;
-                            });
-                            console.log(_this.snacks);
-                        });
-                    });
+                _this.barChartData = [_this.apple, _this.banana, _this.orange, _this.pineapple];
+                _this.snacks.sort(function (a, b) {
+                    return b.Total - a.Total;
                 });
+                console.log(_this.snacks);
             });
+            /*this.service.getAllFruit('orange').subscribe(orange=>{
+              console.log(orange.length);
+              this.orange = orange.length;
+              this.snacks.push({
+                Name:"Orange",
+                Total:this.orange
+              });
+  
+              this.service.getAllFruit('banana').subscribe(banana=>{
+                console.log(banana.length);
+                this.banana = banana.length;
+                this.snacks.push({
+                  Name:"Banana",
+                  Total:this.banana
+                });
+  
+  
+                this.service.getAllFruit('pineapple').subscribe(pineapple=>{
+                  console.log(pineapple.length);
+                  this.pineapple = pineapple.length;
+                  this.snacks.push({
+                    Name:"Pineapple",
+                    Total:this.pineapple
+                  });
+              });
+  
+            });
+         
+          });*/
         });
     };
     AppComponent = __decorate([
