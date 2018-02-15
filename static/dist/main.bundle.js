@@ -96,29 +96,29 @@ var AppComponent = /** @class */ (function () {
                 Name: "Apple",
                 Total: _this.apple
             });
-        });
-        this.service.getAllFruit('orange').subscribe(function (orange) {
-            console.log(orange.length);
-            _this.orange = orange.length;
-            _this.snacks.push({
-                Name: "Orange",
-                Total: _this.orange
-            });
-        });
-        this.service.getAllFruit('banana').subscribe(function (banana) {
-            console.log(banana.length);
-            _this.banana = banana.length;
-            _this.snacks.push({
-                Name: "Banana",
-                Total: _this.banana
-            });
-        });
-        this.service.getAllFruit('pineapple').subscribe(function (pineapple) {
-            console.log(pineapple.length);
-            _this.pineapple = pineapple.length;
-            _this.snacks.push({
-                Name: "Pineapple",
-                Total: _this.pineapple
+            _this.service.getAllFruit('orange').subscribe(function (orange) {
+                console.log(orange.length);
+                _this.orange = orange.length;
+                _this.snacks.push({
+                    Name: "Orange",
+                    Total: _this.orange
+                });
+                _this.service.getAllFruit('banana').subscribe(function (banana) {
+                    console.log(banana.length);
+                    _this.banana = banana.length;
+                    _this.snacks.push({
+                        Name: "Banana",
+                        Total: _this.banana
+                    });
+                    _this.service.getAllFruit('pineapple').subscribe(function (pineapple) {
+                        console.log(pineapple.length);
+                        _this.pineapple = pineapple.length;
+                        _this.snacks.push({
+                            Name: "Pineapple",
+                            Total: _this.pineapple
+                        });
+                    });
+                });
             });
             _this.barChartData = [_this.apple, _this.banana, _this.orange, _this.pineapple];
             _this.snacks.sort(function (a, b) {
@@ -145,35 +145,35 @@ var AppComponent = /** @class */ (function () {
                     Name: "Apple",
                     Total: _this.apple
                 });
-            });
-            _this.service.getAllFruit('orange').subscribe(function (orange) {
-                console.log(orange.length);
-                _this.orange = orange.length;
-                _this.snacks.push({
-                    Name: "Orange",
-                    Total: _this.orange
+                _this.service.getAllFruit('orange').subscribe(function (orange) {
+                    console.log(orange.length);
+                    _this.orange = orange.length;
+                    _this.snacks.push({
+                        Name: "Orange",
+                        Total: _this.orange
+                    });
+                    _this.service.getAllFruit('banana').subscribe(function (banana) {
+                        console.log(banana.length);
+                        _this.banana = banana.length;
+                        _this.snacks.push({
+                            Name: "Banana",
+                            Total: _this.banana
+                        });
+                        _this.service.getAllFruit('pineapple').subscribe(function (pineapple) {
+                            console.log(pineapple.length);
+                            _this.pineapple = pineapple.length;
+                            _this.snacks.push({
+                                Name: "Pineapple",
+                                Total: _this.pineapple
+                            });
+                            _this.barChartData = [_this.apple, _this.banana, _this.orange, _this.pineapple];
+                            _this.snacks.sort(function (a, b) {
+                                return b.Total - a.Total;
+                            });
+                            console.log(_this.snacks);
+                        });
+                    });
                 });
-            });
-            _this.service.getAllFruit('banana').subscribe(function (banana) {
-                console.log(banana.length);
-                _this.banana = banana.length;
-                _this.snacks.push({
-                    Name: "Banana",
-                    Total: _this.banana
-                });
-            });
-            _this.service.getAllFruit('pineapple').subscribe(function (pineapple) {
-                console.log(pineapple.length);
-                _this.pineapple = pineapple.length;
-                _this.snacks.push({
-                    Name: "Pineapple",
-                    Total: _this.pineapple
-                });
-                _this.barChartData = [_this.apple, _this.banana, _this.orange, _this.pineapple];
-                _this.snacks.sort(function (a, b) {
-                    return b.Total - a.Total;
-                });
-                console.log(_this.snacks);
             });
         });
     };
@@ -271,11 +271,11 @@ var PollService = /** @class */ (function () {
     PollService.prototype.startpoll = function (poll) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('poll', JSON.stringify(poll), { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('http://localhost:3000/poll', JSON.stringify(poll), { headers: headers }).map(function (res) { return res.json(); });
     };
     //Getting Fruits Count using REST-API
     PollService.prototype.getAllFruit = function (snack) {
-        return this.http.get('fruit/' + snack).map(function (res) { return res.json(); });
+        return this.http.get('http://localhost:3000/fruit/' + snack).map(function (res) { return res.json(); });
     };
     PollService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),

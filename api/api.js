@@ -9,7 +9,6 @@ module.exports = (app,body)=>{
         if(req.body.studentname){
             db.findOne({studentname:req.body.studentname }).exec().then(data=>{
                 if(data!=null){
-                    console.log(data);
                     db.findOneAndUpdate({studentname:req.body.studentname},
                     {
                         fruitname: req.body.fruitname
@@ -48,9 +47,11 @@ module.exports = (app,body)=>{
 
     app.get('/fruit/:snack', (req,res)=>{
         db.find({fruitname:req.params.snack}).exec().then(data=>{
-            res.json(data);
+            return  res.json(data);
+        }).catch(err=>{
+            return res.json("Invalid Parameters");
         })
-    })
+    });
 
 
 

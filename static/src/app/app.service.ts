@@ -17,12 +17,12 @@ export class PollService{
     startpoll(poll){
       var headers= new Headers();
       headers.append('Content-Type','application/json');
-      return this.http.post('poll', JSON.stringify(poll) , {headers:headers}).map(res => res.json());
+      return this.http.post('http://localhost:3000/poll', JSON.stringify(poll) , {headers:headers}).map(res => res.json());
     }
 
     //Getting Fruits Count using REST-API
     getAllFruit(snack){
-      return this.http.get('fruit/'+ snack).map(res=>res.json());
+      return this.http.get('http://localhost:3000/fruit/'+ snack).map(res=>res.json());
     }
 
 
